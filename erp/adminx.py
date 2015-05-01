@@ -1,7 +1,7 @@
 #coding:utf-8
 
-
-from django.contrib import admin
+import xadmin
+from common.base_admin import BaseAdmin
 from models import rank,host,flowerprovider,sceneprovider,style,photographer,servicetype,lightandaudioprovider
 # Register your models here.
 """
@@ -10,7 +10,7 @@ DATE:4/29/15
 DESC:司仪
 """
 
-class hostAdmin(admin.ModelAdmin):
+class hostAdmin(BaseAdmin):
     """comment admin"""
     def image_link(self, instance):
         """
@@ -41,7 +41,7 @@ DATE:4/29/15
 DESC:评级
 """
 
-class rankAdmin(admin.ModelAdmin):
+class rankAdmin(BaseAdmin):
     """comment admin"""
     def image_link(self, instance):
         """
@@ -71,7 +71,7 @@ DATE:4/29/15
 DESC:摄影师
 """
 
-class photographerAdmin(admin.ModelAdmin):
+class photographerAdmin(BaseAdmin):
 
     def image_link(self, instance):
         """
@@ -105,7 +105,7 @@ DATE:4/30/15
 DESC:灯光音响
 """
 
-class lightandaudioproviderAdmin(admin.ModelAdmin):
+class lightandaudioproviderAdmin(BaseAdmin):
 
     def image_link(self, instance):
         """
@@ -139,7 +139,7 @@ DATE:4/30/15
 DESC:花艺
 """
 
-class flowerproviderAdmin(admin.ModelAdmin):
+class flowerproviderAdmin(BaseAdmin):
     """comment admin"""
     def image_link(self, instance):
         """
@@ -173,7 +173,7 @@ DATE:4/30/15
 DESC:现场布置
 """
 
-class scenesceneproviderAdmin(admin.ModelAdmin):
+class scenesceneproviderAdmin(BaseAdmin):
     """comment admin"""
     # 评论列表显示字段
     def image_link(self, instance):
@@ -202,9 +202,9 @@ class scenesceneproviderAdmin(admin.ModelAdmin):
 
     pass
 
-admin.site.register(rank,rankAdmin)
-admin.site.register(host,hostAdmin)
-admin.site.register(photographer,photographerAdmin)
-admin.site.register(lightandaudioprovider,lightandaudioproviderAdmin)
-admin.site.register(flowerprovider,flowerproviderAdmin)
-admin.site.register(sceneprovider,scenesceneproviderAdmin)
+xadmin.site.register(rank,rankAdmin)
+xadmin.site.register(host,hostAdmin)
+xadmin.site.register(photographer,photographerAdmin)
+xadmin.site.register(lightandaudioprovider,lightandaudioproviderAdmin)
+xadmin.site.register(flowerprovider,flowerproviderAdmin)
+xadmin.site.register(sceneprovider,scenesceneproviderAdmin)
