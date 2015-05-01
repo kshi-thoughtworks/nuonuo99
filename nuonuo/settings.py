@@ -43,7 +43,6 @@ INSTALLED_APPS = (
     'crispy_forms',
     'reversion',
 
-    'erp',
     'member',
     'provider',
 )
@@ -104,7 +103,7 @@ STATIC_URL = '/static/'
 LOGGING
 '''
 
-LOG_LEVEL = "info"
+LOG_LEVEL = "DEBUG"
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
