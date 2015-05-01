@@ -45,6 +45,12 @@ INSTALLED_APPS = (
 
     'member',
     'provider',
+    'product',
+    'image',
+    'video',
+    'wedding',
+    'comment',
+    'order',
 )
 
 MIDDLEWARE_CLASSES = (
