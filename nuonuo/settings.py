@@ -21,9 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'iob#p5m&#wm3j_y5!*luaxlz(4-%p=ony-qf-98z*47ej#w$du'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -68,8 +68,11 @@ WSGI_APPLICATION = 'nuonuo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "nuonuo",
+        'USER': "root",
+        "PASSWORD": "nuonuo2015",
+        "HOST": "localhost",
     }
 }
 
@@ -96,3 +99,66 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+'''
+LOGGING
+'''
+
+LOG_LEVEL = "info"
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': "[%(asctime)s] %(levelname)s "
+                      "[%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+    },
+
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'logfile': {
+            'level': LOG_LEVEL,
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': '/var/log/nuonuo/nuonuo.log', # Absolute
+            'maxBytes': 50000,
+            'backupCount': 2,
+            'formatter': 'standard',
+        },
+        'console': {
+            'level': LOG_LEVEL,
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard'
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['logfile', ],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'nuonuo': {
+            'handlers': ['logfile', ],
+            'level': 'DEBUG',
+        },
+        'member': {
+            'handlers': ['logfile', ],
+            'level': 'DEBUG',
+        },
+        'provider': {
+            'handlers': ['logfile', ],
+            'level': 'DEBUG',
+        },
+    }
+}
+
+
+try:
+    from  local_settings import *
+except ImportError:
+    pass
