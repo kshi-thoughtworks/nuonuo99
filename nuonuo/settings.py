@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'xadmin',
     'crispy_forms',
     'reversion',
+    'django_extensions',
 
     'member',
     'provider',
