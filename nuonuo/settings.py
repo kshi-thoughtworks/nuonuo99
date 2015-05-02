@@ -46,9 +46,10 @@ INSTALLED_APPS = (
 
     'member',
     'provider',
-    'product',
+    'service',
     'image',
     'video',
+    'favorite',
     'wedding',
     'comment',
     'order',

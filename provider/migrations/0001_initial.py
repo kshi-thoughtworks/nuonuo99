@@ -12,6 +12,24 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Executor',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('nn_created_at', models.DateTimeField(auto_now_add=True)),
+                ('nn_updated_at', models.DateTimeField(auto_now=True)),
+                ('nn_status', models.BooleanField(default=True)),
+                ('name', models.CharField(max_length=200, blank=True)),
+                ('height', models.IntegerField(null=True)),
+                ('desc', models.TextField(blank=True)),
+                ('mobile', models.CharField(max_length=20, blank=True)),
+                ('mobile2', models.CharField(max_length=20, blank=True)),
+            ],
+            options={
+                'abstract': False,
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Provider',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -32,5 +50,11 @@ class Migration(migrations.Migration):
                 'abstract': False,
             },
             bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='executor',
+            name='provider',
+            field=models.ForeignKey(related_name='executors', to='provider.Provider'),
+            preserve_default=True,
         ),
     ]
