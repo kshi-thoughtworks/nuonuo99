@@ -111,3 +111,16 @@ class ProductTypeChoices(BaseChoices):
         (SOUND, "SOUND"),
     )
     
+class HotelStyleChoices(BaseChoices):
+    DEFAULT = 0
+
+    CHOICES = (
+        (DEFAULT, "DEFAULT"),
+    )
+
+class HostStyleChoices(BaseChoices):
+    DEFAULT = 0
+
+    CHOICES = (
+        (DEFAULT, "DEFAULT"),
+    )
