@@ -1,3 +1,4 @@
+#coding: utf-8
 from django.db import models
 from common.base_model import BaseModel
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -11,3 +12,6 @@ class Comment(BaseModel):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
+    class Meta:
+        verbose_name = "评论"
+        verbose_name_plural = verbose_name

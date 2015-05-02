@@ -1,3 +1,4 @@
+#coding: utf-8
 from django.db import models
 from common.base_model import BaseModel
 
@@ -14,6 +15,10 @@ class Provider(BaseModel):
     sales_money = models.FloatField(default=0)
     complain_cnt = models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name = "提供商"
+        verbose_name_plural = verbose_name
+
 class Executor(BaseModel):
     name = models.CharField(max_length=200, blank=True)
     height = models.IntegerField(null=True)
@@ -21,3 +26,7 @@ class Executor(BaseModel):
     provider = models.ForeignKey("provider.Provider", related_name="executors")
     mobile = models.CharField(max_length=20, blank=True)
     mobile2 = models.CharField(max_length=20, blank=True)
+
+    class Meta:
+        verbose_name = "执行人"
+        verbose_name_plural = verbose_name

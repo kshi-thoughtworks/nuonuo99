@@ -1,3 +1,4 @@
+#coding: utf-8
 from django.db import models
 from common.base_model import BaseModel
 from common.choices import WeddingStyleChoices
@@ -18,6 +19,10 @@ class Wedding(BaseModel):
     like_cnt = models.IntegerField(default=0)
     comment_cnt = models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name = "婚礼"
+        verbose_name_plural = verbose_name
+
 class WeddingItem(BaseModel):
     wedding = models.ForeignKey("wedding.Wedding", related_name="wedding_items")
     cnt = models.IntegerField(default=1)
@@ -25,4 +30,7 @@ class WeddingItem(BaseModel):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
+    class Meta:
+        verbose_name = "婚礼条目"
+        verbose_name_plural = verbose_name
 

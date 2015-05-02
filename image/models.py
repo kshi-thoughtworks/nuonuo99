@@ -1,3 +1,4 @@
+#coding: utf-8
 from django.db import models
 from common.base_model import BaseModel
 from django.contrib.contenttypes.fields import GenericForeignKey
@@ -12,3 +13,6 @@ class Image(BaseModel):
     content_object = GenericForeignKey('content_type', 'object_id')
     image = models.ImageField(upload_to="static/images/%Y/%m/%d", null=True)
 
+    class Meta:
+        verbose_name = "图片"
+        verbose_name_plural = verbose_name

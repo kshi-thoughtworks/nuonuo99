@@ -28,32 +28,60 @@ class HotelService(Service):
     hall = models.IntegerField(null=True)
 
 
+    class Meta:
+        verbose_name = "酒店服务"
+        verbose_name_plural = verbose_name
+
+
 class HostService(Service):
     """司仪服务"""
     style = models.IntegerField(choices=HostStyleChoices.CHOICES, default=HostStyleChoices.DEFAULT)
     
+    class Meta:
+        verbose_name = "司仪服务"
+        verbose_name_plural = verbose_name
 
 class FlowerService(Service):
     """花艺服务"""
     style = models.IntegerField(choices=HostStyleChoices.CHOICES, default=HostStyleChoices.DEFAULT)
 
+    class Meta:
+        verbose_name = "花艺服务"
+        verbose_name_plural = verbose_name
+
 class PhotoService(Service):
     """摄影服务"""
     pass
+
+    class Meta:
+        verbose_name = "摄影服务"
+        verbose_name_plural = verbose_name
 
 
 class LocationService(Service):
     """场地布置"""
     pass
 
+    class Meta:
+        verbose_name = "场地布置服务"
+        verbose_name_plural = verbose_name
+
 
 class CosmeticService(Service):
     """化妆服务"""
     pass
 
+    class Meta:
+        verbose_name = "化妆服务"
+        verbose_name_plural = verbose_name
+
 class AutoService(Service):
     """车队服务"""
     pass
+
+    class Meta:
+        verbose_name = "车队服务"
+        verbose_name_plural = verbose_name
 
 class HallService(Service):
     """宴会厅服务"""
@@ -67,10 +95,22 @@ class HallService(Service):
     has_sound_equipment = models.BooleanField(default=True)
     wedding_cnt = models.IntegerField(default=0)
 
+    class Meta:
+        verbose_name = "宴会厅服务"
+        verbose_name_plural = verbose_name
+
 class LightService(Service):
     """灯光服务"""
     pass
 
+    class Meta:
+        verbose_name = "灯光服务"
+        verbose_name_plural = verbose_name
+
 class SoundService(Service):
     """音响服务"""
     pass
+
+    class Meta:
+        verbose_name = "音响服务"
+        verbose_name_plural = verbose_name
