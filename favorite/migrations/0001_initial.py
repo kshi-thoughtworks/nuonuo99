@@ -13,16 +13,15 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Image',
+            name='Favorite',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nn_created_at', models.DateTimeField(auto_now_add=True)),
                 ('nn_updated_at', models.DateTimeField(auto_now=True)),
                 ('nn_status', models.BooleanField(default=True)),
                 ('object_id', models.PositiveIntegerField()),
-                ('image', models.ImageField(null=True, upload_to=b'static/images/%Y/%m/%d')),
                 ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
-                ('member', models.ForeignKey(related_name='uploaded_images', to='member.Member')),
+                ('member', models.ForeignKey(related_name='favorites', to='member.Member')),
             ],
             options={
                 'abstract': False,
