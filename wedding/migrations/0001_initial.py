@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product', '0001_initial'),
+        ('contenttypes', '0001_initial'),
         ('member', '0001_initial'),
     ]
 
@@ -44,7 +44,8 @@ class Migration(migrations.Migration):
                 ('nn_updated_at', models.DateTimeField(auto_now=True)),
                 ('nn_status', models.BooleanField(default=True)),
                 ('cnt', models.IntegerField(default=1)),
-                ('product', models.ForeignKey(related_name='pwedding_item', to='product.Product')),
+                ('object_id', models.PositiveIntegerField()),
+                ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
                 ('wedding', models.ForeignKey(related_name='wedding_items', to='wedding.Wedding')),
             ],
             options={

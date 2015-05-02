@@ -1,6 +1,8 @@
 from django.db import models
 from common.base_model import BaseModel
 from common.choices import WeddingStyleChoices
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 
 
 class Wedding(BaseModel):
@@ -18,7 +20,9 @@ class Wedding(BaseModel):
 
 class WeddingItem(BaseModel):
     wedding = models.ForeignKey("wedding.Wedding", related_name="wedding_items")
-    product = models.ForeignKey("product.Product", related_name="pwedding_item")
     cnt = models.IntegerField(default=1)
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
 
 

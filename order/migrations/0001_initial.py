@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('product', '0001_initial'),
+        ('contenttypes', '0001_initial'),
         ('member', '0001_initial'),
     ]
 
@@ -19,8 +19,9 @@ class Migration(migrations.Migration):
                 ('nn_created_at', models.DateTimeField(auto_now_add=True)),
                 ('nn_updated_at', models.DateTimeField(auto_now=True)),
                 ('nn_status', models.BooleanField(default=True)),
+                ('object_id', models.PositiveIntegerField()),
+                ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
                 ('member', models.ForeignKey(related_name='cart', to='member.Member')),
-                ('product', models.ForeignKey(related_name='cart_item', to='product.Product')),
             ],
             options={
                 'abstract': False,
@@ -50,8 +51,9 @@ class Migration(migrations.Migration):
                 ('nn_created_at', models.DateTimeField(auto_now_add=True)),
                 ('nn_updated_at', models.DateTimeField(auto_now=True)),
                 ('nn_status', models.BooleanField(default=True)),
+                ('object_id', models.PositiveIntegerField()),
+                ('content_type', models.ForeignKey(to='contenttypes.ContentType')),
                 ('order', models.ForeignKey(related_name='items', to='order.Order')),
-                ('product', models.ForeignKey(related_name='order_item', to='product.Product')),
             ],
             options={
                 'abstract': False,
