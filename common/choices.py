@@ -91,20 +91,20 @@ class WeddingStyleChoices(BaseChoices):
     )
 
 class ProductTypeChoices(BaseChoices):
-    SIYI = 0
-    HUAYI = 1
-    CHANGDI = 2
-    YANGHUI = 3
-    HOTEL = 4
-    PHOTOGRAPHER = 5
-    LIGHT = 6
-    SOUND = 7
+    SIYI = 0 #司仪
+    HUAYI = 1 #花艺
+    CHANGDI = 2 #场地布置
+    SHOOTING = 3 #摄像
+    HOTEL = 4 #酒店
+    PHOTOGRAPHER = 5 #摄影
+    LIGHT = 6 #灯光
+    SOUND = 7 #音响
 
     CHOICES = (
         (SIYI, "SIYI"),
         (HUAYI, "HUAYI"),
         (CHANGDI, "CHANGDI"),
-        (YANGHUI, "YANGHUI"),
+        (SHOOTING, "SHOOTING"),
         (HOTEL, "HOTEL"),
         (PHOTOGRAPHER, "PHOTOGRAPHER"),
         (LIGHT, "LIGHT"),
