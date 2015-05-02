@@ -3,7 +3,7 @@ import xadmin
 from .models import Comment
 
 class CommentAdmin(BaseAdmin):
-    list_display = ("member", "content_type", "object_id")
+    list_display = ("member", "content_object", "content")
 
 
 xadmin.site.register(Comment, CommentAdmin)

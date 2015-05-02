@@ -28,6 +28,9 @@ def get_random_sample(sequence, num, *args, **kwargs):
     else:
         return factory.LazyAttribute(lambda a: "".join(random.sample(sequence, num)))
 
+def get_random_subfactory(choices):
+    return factory.LazyAttribute(lambda a: factory.SubFactory(random.choice(choices)))
+
 class UserFactory(DjangoModelFactory):
     class Meta:
         model = User
@@ -149,7 +152,7 @@ class WeddingItemFactory(DjangoModelFactory):
     class Meta:
         model = WeddingItem
     wedding = factory.SubFactory(WeddingFactory)
-    content_object = factory.SubFactory(random.choice(SERVICE_FACTORIES))
+    content_object = get_random_subfactory(SERVICE_FACTORIES)
 
 class OrderFactory(DjangoModelFactory):
     class Meta:
@@ -162,13 +165,13 @@ class OrderItemFactory(DjangoModelFactory):
     class Meta:
         model = OrderItem
     member = factory.SubFactory(MemberFactory)
-    content_object = factory.SubFactory(random.choice(SERVICE_FACTORIES))
+    content_object = get_random_subfactory(SERVICE_FACTORIES)
 
 class CartFactory(DjangoModelFactory):
     class Meta:
         model = Cart
     member = factory.SubFactory(MemberFactory)
-    content_object = factory.SubFactory(random.choice(SERVICE_FACTORIES))
+    content_object = get_random_subfactory(SERVICE_FACTORIES)
 
 class TransactionFactory(DjangoModelFactory):
     class Meta:
@@ -185,23 +188,23 @@ class CommentFactory(DjangoModelFactory):
         model = Comment 
 
     member = factory.SubFactory(MemberFactory)
-    content_object = factory.SubFactory(random.choice(GENERIC_FACTORIES))
+    content_object = get_random_subfactory(GENERIC_FACTORIES)
     content = get_random_choice(["very bad", "bad", "good", "very good", "excellent"])
     
 class ImageFactory(DjangoModelFactory):
     class Meta:
         model = Image
     member = factory.SubFactory(MemberFactory)
-    content_object = factory.SubFactory(random.choice(GENERIC_FACTORIES))
+    content_object = get_random_subfactory(GENERIC_FACTORIES)
 
 class VideoFactory(DjangoModelFactory):
     class Meta:
         model = Video
     member = factory.SubFactory(MemberFactory)
-    content_object = factory.SubFactory(random.choice(GENERIC_FACTORIES))
+    content_object = get_random_subfactory(GENERIC_FACTORIES)
 
 class FavoriteFactory(DjangoModelFactory):
     class Meta:
         model = Favorite
     member = factory.SubFactory(MemberFactory)
-    content_object = factory.SubFactory(random.choice(GENERIC_FACTORIES))
+    content_object = get_random_subfactory(GENERIC_FACTORIES)
