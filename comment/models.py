@@ -11,6 +11,7 @@ class Comment(BaseModel):
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
+    content = models.TextField(blank=True)
 
     class Meta:
         verbose_name = "评论"

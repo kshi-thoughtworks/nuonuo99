@@ -5,3 +5,4 @@ django-crispy-forms==1.4.0
 xlwt==1.0.0
 XlsxWriter==0.7.2
 django-extensions==1.2.2
+factory-boy==2.4.1
