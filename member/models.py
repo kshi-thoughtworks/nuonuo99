@@ -11,9 +11,10 @@ from common.choices import (
 
 
 class Member(BaseModel):
-    user = models.ForeignKey("auth.User", related_name="members")
-    gender = models.IntegerField(choices=GenderChoices.CHOICES, default=GenderChoices.UNKNOWN, db_index=True)
-    city = models.IntegerField(null=True)
+    user = models.ForeignKey("auth.User", related_name="members",verbose_name='对应用户')
+    gender = models.IntegerField(choices=GenderChoices.CHOICES, default=GenderChoices.UNKNOWN, db_index=True,verbose_name='性别')
+    province=models.IntegerField(null=True,verbose_name='省')
+    city = models.IntegerField(null=True,verbose_name='城市')
     region = models.IntegerField(null=True)
     location = models.IntegerField(null=True)
     icon = models.ImageField(upload_to="static/member/%Y/%m/%d", null=True)
