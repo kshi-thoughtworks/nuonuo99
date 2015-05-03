@@ -7,7 +7,7 @@ class WeddingAdmin(BaseAdmin):
     list_filters = ("nn_created_at", "nn_status", "date", "style", )
 
 class WeddingItemAdmin(BaseAdmin):
-    list_display = ("wedding", "product", "cnt", )
+    list_display = ("wedding", "content_object", "cnt", )
 
 
 xadmin.site.register(Wedding, WeddingAdmin)
