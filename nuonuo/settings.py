@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'wedding',
     'comment',
     'order',
+    'misc',
 )
 
 MIDDLEWARE_CLASSES = (
