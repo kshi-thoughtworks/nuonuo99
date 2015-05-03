@@ -7,7 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 class Comment(BaseModel):
     """A comment for Member or Wedding
     """
-    member = models.ForeignKey("member.Member", related_name="comments")
+    member = models.ForeignKey("member.Member", related_name="comments",verbose_name='会员')
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
