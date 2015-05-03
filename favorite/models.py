@@ -7,9 +7,9 @@ from django.contrib.contenttypes.models import ContentType
 class Favorite(BaseModel):
     """put a product into favorite list
     """
-    member = models.ForeignKey("member.Member", related_name="favorites")
-    content_type = models.ForeignKey(ContentType)
-    object_id = models.PositiveIntegerField()
+    member = models.ForeignKey("member.Member", related_name="favorites",verbose_name='会员')
+    content_type = models.ForeignKey(ContentType,verbose_name='收藏对象的类型')
+    object_id = models.PositiveIntegerField(verbose_name='收藏对象的ID')
     content_object = GenericForeignKey('content_type', 'object_id')
 
     class Meta:
