@@ -63,7 +63,7 @@ class PaymentFactory(DjangoModelFactory):
 class ProviderFactory(DjangoModelFactory):
     class Meta:
         model = Provider
-    member = factory.SubFactory(MemberFactory)
+    member = factory.SubFactory(MemberFactory, type=MemberTypeChoices.PROVIDER)
     star = get_random_choice(range(1, 6))
     sales_cnt = get_random_choice(range(1, 10000))
     sales_money = get_random_choice(range(1, 100000))
