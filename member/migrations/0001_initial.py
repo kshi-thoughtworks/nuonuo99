@@ -3,11 +3,13 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 from django.conf import settings
+import utils.thumbs
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('misc', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -19,11 +21,9 @@ class Migration(migrations.Migration):
                 ('nn_created_at', models.DateTimeField(auto_now_add=True)),
                 ('nn_updated_at', models.DateTimeField(auto_now=True)),
                 ('nn_status', models.BooleanField(default=True)),
-                ('gender', models.IntegerField(default=2, db_index=True, choices=[(0, b'MALE'), (1, b'FEMALE'), (2, b'UNKNOWN')])),
-                ('city', models.IntegerField(null=True)),
-                ('region', models.IntegerField(null=True)),
-                ('location', models.IntegerField(null=True)),
-                ('icon', models.ImageField(null=True, upload_to=b'static/member/%Y/%m/%d')),
+                ('gender', models.IntegerField(default=2, db_index=True, verbose_name=b'\xe6\x80\xa7\xe5\x88\xab', choices=[(0, b'MALE'), (1, b'FEMALE'), (2, b'UNKNOWN')])),
+                ('location', models.TextField(null=True)),
+                ('icon', utils.thumbs.ImageWithThumbsField(null=True, upload_to=b'static/member/%Y/%m/%d')),
                 ('type', models.IntegerField(default=0, db_index=True, choices=[(0, b'NORMAL'), (1, b'PROVIDER')])),
                 ('desc', models.TextField(blank=True)),
                 ('fans_cnt', models.IntegerField(default=0)),
@@ -31,10 +31,14 @@ class Migration(migrations.Migration):
                 ('like_cnt', models.IntegerField(default=0)),
                 ('dob', models.DateTimeField(null=True)),
                 ('mobile', models.IntegerField(null=True)),
-                ('user', models.ForeignKey(related_name='members', to=settings.AUTH_USER_MODEL)),
+                ('city', models.ForeignKey(to='misc.City', null=True)),
+                ('province', models.ForeignKey(to='misc.Province', null=True)),
+                ('region', models.ForeignKey(to='misc.Region', null=True)),
+                ('user', models.ForeignKey(related_name='members', verbose_name=b'\xe5\xaf\xb9\xe5\xba\x94\xe7\x94\xa8\xe6\x88\xb7', to=settings.AUTH_USER_MODEL)),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u4f1a\u5458',
+                'verbose_name_plural': '\u4f1a\u5458',
             },
             bases=(models.Model,),
         ),
@@ -52,7 +56,8 @@ class Migration(migrations.Migration):
                 ('member', models.ForeignKey(related_name='auths', to='member.Member')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': 'OAuth\u4fe1\u606f',
+                'verbose_name_plural': 'OAuth\u4fe1\u606f',
             },
             bases=(models.Model,),
         ),
@@ -70,7 +75,8 @@ class Migration(migrations.Migration):
                 ('member', models.ForeignKey(related_name='payments', to='member.Member')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u652f\u4ed8',
+                'verbose_name_plural': '\u652f\u4ed8',
             },
             bases=(models.Model,),
         ),

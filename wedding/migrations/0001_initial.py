@@ -32,7 +32,8 @@ class Migration(migrations.Migration):
                 ('member', models.ForeignKey(related_name='wedding', to='member.Member')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u5a5a\u793c',
+                'verbose_name_plural': '\u5a5a\u793c',
             },
             bases=(models.Model,),
         ),
@@ -49,7 +50,8 @@ class Migration(migrations.Migration):
                 ('wedding', models.ForeignKey(related_name='wedding_items', to='wedding.Wedding')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u5a5a\u793c\u6761\u76ee',
+                'verbose_name_plural': '\u5a5a\u793c\u6761\u76ee',
             },
             bases=(models.Model,),
         ),

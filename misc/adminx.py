@@ -2,9 +2,17 @@ import xadmin
 from common.base_admin import BaseAdmin
 from .models import *
 
-class LocationAdmin(BaseAdmin):
-    list_display = ("province", "city", "region", "biz_region")
-    list_filters = ("province", "nn_created_at")
+class ProvinceAdmin(BaseAdmin):
+    list_display = ("name", "code", )
+    list_filters = ("nn_created_at")
+
+class CityAdmin(BaseAdmin):
+    list_display = ("name", "code", "province")
+    list_filters = ("province__name", "nn_created_at")
+
+class RegionAdmin(BaseAdmin):
+    list_display = ("name", "code", "city")
+    list_filters = ( "nn_created_at")
 
 class StyleAdmin(BaseAdmin):
     list_display = ("name", "desc")
@@ -36,7 +44,9 @@ class AutoAdmin(BaseAdmin):
 class ClassAdmin(BaseAdmin):
     list_display = ("name", "desc")
 
-xadmin.site.register(Location, LocationAdmin)
+xadmin.site.register(Province, ProvinceAdmin)
+xadmin.site.register(City, CityAdmin)
+xadmin.site.register(Region, RegionAdmin)
 xadmin.site.register(Style, StyleAdmin)
 xadmin.site.register(ProviderRank, ProviderRankAdmin)
 xadmin.site.register(CameraDevice, CameraDeviceAdmin)

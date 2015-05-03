@@ -29,7 +29,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u8f66\u961f\u670d\u52a1',
+                'verbose_name_plural': '\u8f66\u961f\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -51,7 +52,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u5316\u5986\u670d\u52a1',
+                'verbose_name_plural': '\u5316\u5986\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -74,7 +76,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u82b1\u827a\u670d\u52a1',
+                'verbose_name_plural': '\u82b1\u827a\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -105,7 +108,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u5bb4\u4f1a\u5385\u670d\u52a1',
+                'verbose_name_plural': '\u5bb4\u4f1a\u5385\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -128,7 +132,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u53f8\u4eea\u670d\u52a1',
+                'verbose_name_plural': '\u53f8\u4eea\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -156,7 +161,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u9152\u5e97\u670d\u52a1',
+                'verbose_name_plural': '\u9152\u5e97\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -178,7 +184,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u706f\u5149\u670d\u52a1',
+                'verbose_name_plural': '\u706f\u5149\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -200,7 +207,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u573a\u5730\u5e03\u7f6e\u670d\u52a1',
+                'verbose_name_plural': '\u573a\u5730\u5e03\u7f6e\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -222,7 +230,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u6444\u5f71\u670d\u52a1',
+                'verbose_name_plural': '\u6444\u5f71\u670d\u52a1',
             },
             bases=(models.Model,),
         ),
@@ -244,7 +253,8 @@ class Migration(migrations.Migration):
                 ('provider', models.ForeignKey(to='provider.Provider')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u97f3\u54cd\u670d\u52a1',
+                'verbose_name_plural': '\u97f3\u54cd\u670d\u52a1',
             },
             bases=(models.Model,),
         ),

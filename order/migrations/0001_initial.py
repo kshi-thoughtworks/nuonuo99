@@ -24,7 +24,8 @@ class Migration(migrations.Migration):
                 ('member', models.ForeignKey(related_name='cart', to='member.Member')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u8d2d\u7269\u8f66',
+                'verbose_name_plural': '\u8d2d\u7269\u8f66',
             },
             bases=(models.Model,),
         ),
@@ -40,7 +41,8 @@ class Migration(migrations.Migration):
                 ('member', models.ForeignKey(related_name='orders', to='member.Member')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u8ba2\u5355',
+                'verbose_name_plural': '\u8ba2\u5355',
             },
             bases=(models.Model,),
         ),
@@ -56,7 +58,8 @@ class Migration(migrations.Migration):
                 ('order', models.ForeignKey(related_name='items', to='order.Order')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u8ba2\u5355\u6761\u76ee',
+                'verbose_name_plural': '\u8ba2\u5355\u6761\u76ee',
             },
             bases=(models.Model,),
         ),
@@ -71,7 +74,8 @@ class Migration(migrations.Migration):
                 ('payment', models.ForeignKey(related_name='transactions', to='member.Payment')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u4ea4\u6613',
+                'verbose_name_plural': '\u4ea4\u6613',
             },
             bases=(models.Model,),
         ),

@@ -25,7 +25,8 @@ class Migration(migrations.Migration):
                 ('member', models.ForeignKey(related_name='uploaded_videos', to='member.Member')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u89c6\u9891',
+                'verbose_name_plural': '\u89c6\u9891',
             },
             bases=(models.Model,),
         ),

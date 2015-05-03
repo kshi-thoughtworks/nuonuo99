@@ -1,6 +1,7 @@
 #coding: utf-8
 from django.db import models
 from common.base_model import BaseModel
+from utils.thumbs import ImageWithThumbsField
 from common.choices import (
         GenderChoices,
         MemberTypeChoices,
@@ -13,11 +14,11 @@ from common.choices import (
 class Member(BaseModel):
     user = models.ForeignKey("auth.User", related_name="members",verbose_name='对应用户')
     gender = models.IntegerField(choices=GenderChoices.CHOICES, default=GenderChoices.UNKNOWN, db_index=True,verbose_name='性别')
-    province=models.IntegerField(null=True,verbose_name='省')
-    city = models.IntegerField(null=True,verbose_name='城市')
-    region = models.IntegerField(null=True)
-    location = models.IntegerField(null=True)
-    icon = models.ImageField(upload_to="static/member/%Y/%m/%d", null=True)
+    province = models.ForeignKey("misc.Province", null=True)
+    city = models.ForeignKey("misc.City", null=True)
+    region = models.ForeignKey("misc.Region", null=True)
+    location = models.TextField(null=True)
+    icon = ImageWithThumbsField(upload_to="static/member/%Y/%m/%d", sizes=((100,100),(300,300)), null=True)
     type = models.IntegerField(choices=MemberTypeChoices.CHOICES, default=MemberTypeChoices.NORMAL, db_index=True)
     desc = models.TextField(blank=True)
     fans_cnt = models.IntegerField(default=0)

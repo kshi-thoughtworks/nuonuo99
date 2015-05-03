@@ -2,14 +2,37 @@
 from django.db import models
 from common.base_model import BaseModel
 
-class Location(BaseModel):
-    province = models.CharField(max_length=50, blank=True)
-    city = models.CharField(max_length=50, blank=True)
-    region = models.CharField(max_length=50, blank=True)
-    biz_region = models.CharField(max_length=50, blank=True)
+class Province(BaseModel):
+    code = models.CharField(max_length=6, blank=True)
+    name = models.CharField(max_length=50, blank=True)
+
+    def __unicode__(self):
+        return self.name
 
     class Meta:
-        verbose_name = "位置"
+        verbose_name = "省"
+        verbose_name_plural = verbose_name
+
+class City(BaseModel):
+    province = models.ForeignKey(Province)
+    code = models.CharField(max_length=6, blank=True)
+    name = models.CharField(max_length=50, blank=True)
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "市"
+        verbose_name_plural = verbose_name
+
+class Region(BaseModel):
+    city = models.ForeignKey(City)
+    code = models.CharField(max_length=6, blank=True)
+    name = models.CharField(max_length=50, blank=True)
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "区县"
         verbose_name_plural = verbose_name
 
 class Style(BaseModel):

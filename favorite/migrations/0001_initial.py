@@ -24,7 +24,8 @@ class Migration(migrations.Migration):
                 ('member', models.ForeignKey(related_name='favorites', to='member.Member')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u6536\u85cf',
+                'verbose_name_plural': '\u6536\u85cf',
             },
             bases=(models.Model,),
         ),

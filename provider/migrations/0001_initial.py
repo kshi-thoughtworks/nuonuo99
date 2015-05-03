@@ -25,7 +25,8 @@ class Migration(migrations.Migration):
                 ('mobile2', models.CharField(max_length=20, blank=True)),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u6267\u884c\u4eba',
+                'verbose_name_plural': '\u6267\u884c\u4eba',
             },
             bases=(models.Model,),
         ),
@@ -47,7 +48,8 @@ class Migration(migrations.Migration):
                 ('member', models.ForeignKey(related_name='provider', to='member.Member')),
             ],
             options={
-                'abstract': False,
+                'verbose_name': '\u63d0\u4f9b\u5546',
+                'verbose_name_plural': '\u63d0\u4f9b\u5546',
             },
             bases=(models.Model,),
         ),
