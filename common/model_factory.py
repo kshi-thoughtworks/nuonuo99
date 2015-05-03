@@ -47,7 +47,7 @@ class MemberFactory(DjangoModelFactory):
 
     user = factory.SubFactory(UserFactory)
     gender = get_random_choice(GenderChoices.CHOICES, 0, extra_func="__getitem__")
-    type = get_random_choice(MemberTypeChoices.CHOICES, 0, extra_func="__getitem__")
+    type = MemberTypeChoices.NORMAL
     fans_cnt = get_random_choice(range(1,10000))
     like_cnt = get_random_choice(range(1,10000))
     comment_cnt = get_random_choice(range(1,10000))
