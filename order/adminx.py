@@ -7,10 +7,10 @@ class OrderAdmin(BaseAdmin):
     list_filters = ("nn_created_at", "nn_status", "status")
 
 class OrderItemAdmin(BaseAdmin):
-    list_display = ("order", "product", )
+    list_display = ("order", "content_object", )
 
 class CartAdmin(BaseAdmin):
-    list_display = ("member", "product")
+    list_display = ("member", "content_object")
 
 class TransactionAdmin(BaseAdmin):
     list_display = ("order", "payment", )
