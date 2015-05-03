@@ -24,7 +24,7 @@ class CameraDeviceAdmin(BaseAdmin):
     list_display = ("name", "brand", "frame", "desc")
 
 class CosmeticBrandAdmin(BaseAdmin):
-    list_display = ("name", "brand", "frame", "desc", "_class")
+    list_display = ("name", "brand", "desc", "_class")
 
 class FlowerTypeAdmin(BaseAdmin):
     list_display = ("name", "desc")
