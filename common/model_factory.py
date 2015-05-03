@@ -164,7 +164,7 @@ class OrderFactory(DjangoModelFactory):
 class OrderItemFactory(DjangoModelFactory):
     class Meta:
         model = OrderItem
-    member = factory.SubFactory(MemberFactory)
+    order = factory.SubFactory(OrderFactory)
     content_object = get_random_subfactory(SERVICE_FACTORIES)
 
 class CartFactory(DjangoModelFactory):

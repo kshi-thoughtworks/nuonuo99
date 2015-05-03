@@ -11,7 +11,7 @@ class Command(BaseCommand):
     help = "Generate dummy data"
 
     def handle(self, *args, **options):
-        factories = GENERIC_FACTORIES + [OrderFactory, WeddingItemFactory, CartFactory, TransactionFactory,
+        factories = GENERIC_FACTORIES + [OrderFactory, OrderItemFactory, WeddingItemFactory, CartFactory, TransactionFactory,
             ImageFactory, VideoFactory, CommentFactory, FavoriteFactory]
         for f in factories:
             print "creating {} {} ...".format(NUM, f._meta.model)
