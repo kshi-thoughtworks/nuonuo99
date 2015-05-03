@@ -2,9 +2,9 @@ from django.db import models
 from django.db.models.fields.related import ForeignKey
 
 class BaseModel(models.Model):
-    nn_created_at = models.DateTimeField(auto_now_add=True)
-    nn_updated_at = models.DateTimeField(auto_now=True)
-    nn_status = models.BooleanField(default=True)
+    nn_created_at = models.DateTimeField(auto_now_add=True,verbose_name='创建时间')
+    nn_updated_at = models.DateTimeField(auto_now=True,verbose_name='更新时间')
+    nn_status = models.BooleanField(default=True,verbose_name='当前状态')
 
     class Meta:
         abstract = True
