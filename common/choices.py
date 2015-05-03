@@ -28,9 +28,9 @@ class GenderChoices(BaseChoices):
     UNKNOWN = 2
 
     CHOICES = (
-        (MALE, "MALE"),
-        (FEMALE, "FEMALE"),
-        (UNKNOWN, "UNKNOWN"),
+        (MALE, "男"),
+        (FEMALE, "女"),
+        (UNKNOWN, "未知"),
     )
 
 
@@ -39,8 +39,8 @@ class MemberTypeChoices(BaseChoices):
     PROVIDER = 1
 
     CHOICES = (
-        (NORMAL, "NORMAL"),
-        (PROVIDER, "PROVIDER"),
+        (NORMAL, "用户"),
+        (PROVIDER, "供应商"),
     )
 
 class PaymentChoices(BaseChoices):
@@ -50,10 +50,10 @@ class PaymentChoices(BaseChoices):
     WEIXIN = 3
 
     CHOICES = (
-        (BANK, "BANK"),
-        (ALIPAY, "ALIPAY"),
-        (UNIONPAY, "UNIONPAY"),
-        (WEIXIN, "WEIXIN"),
+        (BANK, "银行卡支付"),
+        (ALIPAY, "支付宝"),
+        (UNIONPAY, "银联支付"),
+        (WEIXIN, "微信支付"),
     )
 
 class OAuthPlatformChoices(BaseChoices):
@@ -76,19 +76,23 @@ class OrderStatusChoices(BaseChoices):
     DELETED = 5
 
     CHOICES = (
-        (NOT_PAY, "NOT_PAY"),
-        (PAY, "PAY"),
-        (DELIVERED, "DELIVERED"),
-        (DONE, "DONE"),
-        (CANCELED, "CANCELED"),
-        (DELETED, "DELETED"),
+        (NOT_PAY, "未支付"),
+        (PAY, "已支付成功"),
+        (DELIVERED, "服务中"),
+        (DONE, "服务完毕"),
+        (CANCELED, "取消"),
+        (DELETED, "已删除"),
     )
 
 class WeddingStyleChoices(BaseChoices):
-    DEFAULT = 0
+    CHINESE = 0
+    WEST = 1
+    OUTSIDE=2
 
     CHOICES = (
-        (DEFAULT, "DEFAULT"),
+        (CHINESE, "中式"),
+        (WEST, "西式"),
+        (OUTSIDE, "户外"),
     )
 
 class ProductTypeChoices(BaseChoices):
@@ -102,14 +106,14 @@ class ProductTypeChoices(BaseChoices):
     SOUND = 7 #音响
 
     CHOICES = (
-        (SIYI, "SIYI"),
-        (HUAYI, "HUAYI"),
-        (CHANGDI, "CHANGDI"),
-        (SHOOTING, "SHOOTING"),
-        (HOTEL, "HOTEL"),
-        (PHOTOGRAPHER, "PHOTOGRAPHER"),
-        (LIGHT, "LIGHT"),
-        (SOUND, "SOUND"),
+        (SIYI, "司仪"),
+        (HUAYI, "花艺"),
+        (CHANGDI, "场布"),
+        (SHOOTING, "摄像"),
+        (HOTEL, "酒店"),
+        (PHOTOGRAPHER, "摄影"),
+        (LIGHT, "灯光"),
+        (SOUND, "音响"),
     )
     
 class HotelStyleChoices(BaseChoices):

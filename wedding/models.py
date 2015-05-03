@@ -13,7 +13,7 @@ class Wedding(BaseModel):
     city = models.IntegerField(null=True)
     date = models.DateTimeField(null=True)
     desk_cnt = models.IntegerField(default=0)
-    style = models.IntegerField(choices=WeddingStyleChoices.CHOICES, default=WeddingStyleChoices.DEFAULT)
+    style = models.IntegerField(choices=WeddingStyleChoices.CHOICES, default=WeddingStyleChoices.WEST)
     budget = models.FloatField(default=0)
     realspend = models.FloatField(default=0)
     like_cnt = models.IntegerField(default=0)
