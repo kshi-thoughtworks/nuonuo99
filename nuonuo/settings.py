@@ -27,6 +27,10 @@ TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['123.57.142.206']
 
+# user uploading files
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 
 # Application definition
 
@@ -39,7 +43,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # 3rd party app
-    'xadmin',
     'crispy_forms',
     'reversion',
     'django_extensions',
@@ -54,6 +57,8 @@ INSTALLED_APPS = (
     'comment',
     'order',
     'misc',
+
+    'xadmin',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,6 +112,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 '''
 LOGGING
