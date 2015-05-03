@@ -3,8 +3,8 @@ from django.db import models
 from common.base_model import BaseModel
 
 class Province(BaseModel):
-    code = models.CharField(max_length=6, blank=True)
-    name = models.CharField(max_length=50, blank=True)
+    code = models.CharField(max_length=6, blank=True,verbose_name='邮编')
+    name = models.CharField(max_length=50, blank=True,verbose_name='省')
 
     def __unicode__(self):
         return self.name
@@ -15,8 +15,8 @@ class Province(BaseModel):
 
 class City(BaseModel):
     province = models.ForeignKey(Province)
-    code = models.CharField(max_length=6, blank=True)
-    name = models.CharField(max_length=50, blank=True)
+    code = models.CharField(max_length=6, blank=True,verbose_name='邮编')
+    name = models.CharField(max_length=50, blank=True,verbose_name='市')
     def __unicode__(self):
         return self.name
 
@@ -26,8 +26,8 @@ class City(BaseModel):
 
 class Region(BaseModel):
     city = models.ForeignKey(City)
-    code = models.CharField(max_length=6, blank=True)
-    name = models.CharField(max_length=50, blank=True)
+    code = models.CharField(max_length=6, blank=True,verbose_name='邮编')
+    name = models.CharField(max_length=50, blank=True,verbose_name='区域')
     def __unicode__(self):
         return self.name
 
@@ -36,8 +36,8 @@ class Region(BaseModel):
         verbose_name_plural = verbose_name
 
 class Style(BaseModel):
-    name = models.CharField(max_length=50, blank=True)
-    desc = models.TextField(blank=True)
+    name = models.CharField(max_length=50, blank=True,verbose_name='婚礼风格')
+    desc = models.TextField(blank=True,verbose_name='风格描述')
 
     class Meta:
         verbose_name = "风格"
@@ -73,32 +73,32 @@ class CosmeticBrand(BaseModel):
         verbose_name_plural = verbose_name
 
 class FlowerType(BaseModel):
-    name = models.CharField(max_length=50, blank=True)
-    image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True)
+    name = models.CharField(max_length=50, blank=True,verbose_name='鲜花品种')
+    image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True,verbose_name='主样图')
     desc = models.TextField(blank=True)
 
     class Meta:
-        verbose_name = "鲜花类型"
+        verbose_name = "鲜花品种"
         verbose_name_plural = verbose_name
 
 class SoundDevice(BaseModel):
-    name = models.CharField(max_length=50, blank=True)
-    brand = models.CharField(max_length=50, blank=True)
-    power = models.IntegerField(default=100)
-    _class = models.IntegerField(default=1)
-    image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True)
-    desc = models.TextField(blank=True)
+    name = models.CharField(max_length=50, blank=True,verbose_name='音响设备名称')
+    brand = models.CharField(max_length=50, blank=True,verbose_name='音响设备品牌')
+    power = models.IntegerField(default=100,verbose_name='瓦数')
+    _class = models.IntegerField(default=1,verbose_name='档次')
+    image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True,verbose_name='主样图')
+    desc = models.TextField(blank=True,verbose_name='描述')
 
     class Meta:
         verbose_name = "音响设备"
         verbose_name_plural = verbose_name
 
 class ShootingDevice(BaseModel):
-    name = models.CharField(max_length=50, blank=True)
-    brand = models.CharField(max_length=50, blank=True)
-    _class = models.IntegerField(default=1)
-    image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True)
-    desc = models.TextField(blank=True)
+    name = models.CharField(max_length=50, blank=True,verbose_name='摄像设备名称')
+    brand = models.CharField(max_length=50, blank=True,verbose_name='摄像设备品牌')
+    _class = models.IntegerField(default=1,verbose_name='档次')
+    image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True,verbose_name='配图')
+    desc = models.TextField(blank=True,verbose_name='描述')
 
     class Meta:
         verbose_name = "摄像设备"
@@ -124,7 +124,7 @@ class Auto(BaseModel):
     desc = models.TextField(blank=True)
 
     class Meta:
-        verbose_name = "汽车"
+        verbose_name = "婚车"
         verbose_name_plural = verbose_name
 
 class Class(BaseModel):
