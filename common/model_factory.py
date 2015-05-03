@@ -29,7 +29,7 @@ def get_random_sample(sequence, num, *args, **kwargs):
         return factory.LazyAttribute(lambda a: "".join(random.sample(sequence, num)))
 
 def get_random_subfactory(choices):
-    return factory.LazyAttribute(lambda a: factory.SubFactory(random.choice(choices)))
+    return factory.LazyAttribute(lambda a: random.choice(choices).create())
 
 class UserFactory(DjangoModelFactory):
     class Meta:
