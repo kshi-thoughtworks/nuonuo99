@@ -1,7 +1,7 @@
 #coding: utf-8
 from django.db import models
 from common.base_model import BaseModel
-from common.choices import HotelStyleChoices, HostStyleChoices
+from common.choices import HotelStyleChoices, HostStyleChoices,FLOWERCHOICE,WeddingStyleChoices
 
 
 class Service(BaseModel):
@@ -43,7 +43,9 @@ class HostService(Service):
 
 class FlowerService(Service):
     """花艺服务"""
-    style = models.IntegerField(choices=HostStyleChoices.CHOICES, default=HostStyleChoices.DEFAULT)
+    style = models.IntegerField(choices=WeddingStyleChoices.CHOICES, default=WeddingStyleChoices.CHINESE)
+    type=models.IntegerField(choices=FLOWERCHOICE.CHOICES,default=FLOWERCHOICE.HUAMEN,verbose_name='花艺产品类型')
+    amount=models.IntegerField(verbose_name='花朵数量')
 
     class Meta:
         verbose_name = "花艺服务"

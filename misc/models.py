@@ -1,6 +1,7 @@
 #coding: utf-8
 from django.db import models
 from common.base_model import BaseModel
+from common.choices import CameraTypeChoices
 
 class Province(BaseModel):
     code = models.CharField(max_length=6, blank=True,verbose_name='邮编')
@@ -52,21 +53,21 @@ class ProviderRank(BaseModel):
         verbose_name_plural = verbose_name
     
 class CameraDevice(BaseModel):
-    name = models.CharField(max_length=50, blank=True)
-    brand = models.CharField(max_length=50, blank=True)
-    frame = models.BooleanField(default=True)
-    desc = models.TextField(blank=True)
+    name = models.CharField(max_length=50, blank=True,verbose_name='摄影器材名称')
+    brand = models.CharField(max_length=50, blank=True,verbose_name='品牌')
+    frame = models.IntegerField(choices=CameraTypeChoices.CHOICES,default=CameraTypeChoices.HALFFRAME,verbose_name='画幅')
+    desc = models.TextField(blank=True,verbose_name='描述')
 
     class Meta:
         verbose_name = "摄影设备"
         verbose_name_plural = verbose_name
 
 class CosmeticBrand(BaseModel):
-    name = models.CharField(max_length=50, blank=True)
-    brand = models.CharField(max_length=50, blank=True)
-    image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True)
+    name = models.CharField(max_length=50, blank=True,verbose_name='化妆设备名称')
+    brand = models.CharField(max_length=50, blank=True,verbose_name='品牌')
+    image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True,verbose_name='图片')
     _class = models.IntegerField(default=1)
-    desc = models.TextField(blank=True)
+    desc = models.TextField(blank=True,verbose_name='描述')
 
     class Meta:
         verbose_name = "化妆品牌"
@@ -75,7 +76,7 @@ class CosmeticBrand(BaseModel):
 class FlowerType(BaseModel):
     name = models.CharField(max_length=50, blank=True,verbose_name='鲜花品种')
     image = models.ImageField(upload_to="static/misc/%Y/%m/%d", null=True,verbose_name='主样图')
-    desc = models.TextField(blank=True)
+    desc = models.TextField(blank=True,verbose_name='描述')
 
     class Meta:
         verbose_name = "鲜花品种"
@@ -105,7 +106,7 @@ class ShootingDevice(BaseModel):
         verbose_name_plural = verbose_name
 
 class LightDevice(BaseModel):
-    name = models.CharField(max_length=50, blank=True)
+    name = models.CharField(max_length=50, blank=True,verbose_name='灯光设备名称')
     brand = models.CharField(max_length=50, blank=True)
     power = models.IntegerField(default=100)
     _class = models.IntegerField(default=1)

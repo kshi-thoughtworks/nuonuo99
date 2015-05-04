@@ -95,6 +95,15 @@ class WeddingStyleChoices(BaseChoices):
         (OUTSIDE, "户外"),
     )
 
+class CameraTypeChoices(BaseChoices):
+    FULLFRAME=1 #全画幅
+    HALFFRAME=0 #非全画幅
+
+    CHOICES = (
+        (FULLFRAME,'全画幅'),
+        (HALFFRAME,'非全画幅'),
+    )
+
 class ProductTypeChoices(BaseChoices):
     SIYI = 0 #司仪
     HUAYI = 1 #花艺
@@ -114,6 +123,39 @@ class ProductTypeChoices(BaseChoices):
         (PHOTOGRAPHER, "摄影"),
         (LIGHT, "灯光"),
         (SOUND, "音响"),
+    )
+
+class FLOWERCHOICE(BaseChoices):
+    HUAMEN = 0 #花门
+    CHEHUA = 1 #车花
+    HUATAO = 2 #花套
+    SHUIPAI = 3 #迎宾水牌
+    HEYINGQU = 4 #合影区
+    QIANDAOTAI = 5 #签到台
+    LUYING = 6 #路引
+    KEZHUOHUA = 7 #客桌花
+    ZHUZHUOHUA = 8 #主桌花
+    SIYTAI =9 #司仪台
+    XIANGBINZHUOHUA =10 #香槟桌花
+    ZHUTAIZHUOHUA =11 #烛台桌花
+    BEIJINGZHUOHUA =12 #背景花艺
+    QITA=13 #其他
+
+    CHOICES = (
+        (HUAMEN, '花门'),
+        (CHEHUA,'车花'),
+        (HUATAO,'花套'),
+        (SHUIPAI,'迎宾水牌'),
+        (HEYINGQU,'合影区'),
+        (QIANDAOTAI,'签到台'),
+        (LUYING,'路引'),
+        (KEZHUOHUA,'客桌花'),
+        (ZHUZHUOHUA,'主桌花'),
+        (SIYTAI,'司仪台'),
+        (XIANGBINZHUOHUA,'香槟桌花'),
+        (ZHUTAIZHUOHUA,'烛台桌花'),
+        (BEIJINGZHUOHUA,'背景花艺'),
+        (QITA,'其他'),
     )
     
 class HotelStyleChoices(BaseChoices):

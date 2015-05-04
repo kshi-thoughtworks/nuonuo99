@@ -7,11 +7,11 @@ from django.contrib.contenttypes.models import ContentType
 class Video(BaseModel):
     """videos for product, etc.
     """
-    member = models.ForeignKey("member.Member", related_name="uploaded_videos")
-    content_type = models.ForeignKey(ContentType)
-    object_id = models.PositiveIntegerField()
-    content_object = GenericForeignKey('content_type', 'object_id')
-    video = models.CharField(max_length=255, blank=True)
+    member = models.ForeignKey("member.Member", related_name="uploaded_videos",verbose_name='会员')
+    content_type = models.ForeignKey(ContentType,verbose_name='产品类型')
+    object_id = models.PositiveIntegerField(verbose_name='产品ID')
+    content_object = GenericForeignKey('content_type', 'object_id',)
+    video = models.CharField(max_length=255, blank=True,verbose_name='视频地址')
 
     class Meta:
         verbose_name = "视频"

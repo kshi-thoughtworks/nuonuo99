@@ -1,3 +1,4 @@
+#coding:utf-8
 import xadmin
 from common.base_admin import BaseAdmin
 from .models import *
@@ -27,7 +28,8 @@ class CosmeticBrandAdmin(BaseAdmin):
     list_display = ("name", "brand", "desc", "_class")
 
 class FlowerTypeAdmin(BaseAdmin):
-    list_display = ("name", "desc")
+
+    list_display = ("name", "desc","show_image")
 
 class SoundDeviceAdmin(BaseAdmin):
     list_display = ("name", "brand", "power", "desc", "_class")
