@@ -25,7 +25,7 @@ class Member(BaseModel):
     comment_cnt = models.IntegerField(default=0,verbose_name='评论数量')
     like_cnt = models.IntegerField(default=0,verbose_name='赞数量')
     dob = models.DateTimeField(null=True,verbose_name='出生日期')
-    mobile = models.IntegerField(null=True,verbose_name='手机')
+    mobile = models.CharField(max_length=200,null=True,verbose_name='手机号')
 
     class Meta:
         verbose_name = "会员"
