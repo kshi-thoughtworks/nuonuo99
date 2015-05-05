@@ -171,3 +171,5 @@ class HostStyleChoices(BaseChoices):
     CHOICES = (
         (DEFAULT, "DEFAULT"),
     )
+
+

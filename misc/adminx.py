@@ -29,7 +29,7 @@ class CosmeticBrandAdmin(BaseAdmin):
 
 class FlowerTypeAdmin(BaseAdmin):
 
-    list_display = ("name", "desc","show_image")
+    list_display = ("name", "desc",)
 
 class SoundDeviceAdmin(BaseAdmin):
     list_display = ("name", "brand", "power", "desc", "_class")

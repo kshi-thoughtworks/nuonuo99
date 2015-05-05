@@ -14,6 +14,7 @@ class Provider(BaseModel):
     sales_cnt = models.IntegerField(default=0,verbose_name='销售单数')
     sales_money = models.FloatField(default=0,verbose_name='销售总额')
     complain_cnt = models.IntegerField(default=0,verbose_name='投诉次数')
+    comments_byinternal=models.TextField(verbose_name='网站评价')
 
     class Meta:
         verbose_name = "提供商"

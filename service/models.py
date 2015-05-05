@@ -1,7 +1,7 @@
 #coding: utf-8
 from django.db import models
 from common.base_model import BaseModel
-from common.choices import HotelStyleChoices, HostStyleChoices,FLOWERCHOICE,WeddingStyleChoices
+from common.choices import HotelStyleChoices, HostStyleChoices,FLOWERCHOICE,WeddingStyleChoices,CameraTypeChoices
 
 
 class Service(BaseModel):
@@ -53,8 +53,7 @@ class FlowerService(Service):
 
 class PhotoService(Service):
     """摄影服务"""
-    pass
-
+    frame=models.IntegerField(choices=CameraTypeChoices.CHOICES,default=CameraTypeChoices.FULLFRAME,verbose_name='照相机画幅')
     class Meta:
         verbose_name = "摄影服务"
         verbose_name_plural = verbose_name
